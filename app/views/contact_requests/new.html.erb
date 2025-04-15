@@ -1,0 +1,24 @@
+<div class="container my-4">
+  <h2>Đăng ký đặt lịch hẹn</h2>
+  <%= form_with model: @contact_request, local: true do |f| %>
+    <div class="mb-3">
+      <%= f.label :name, "Họ và tên" %>
+      <%= f.text_field :name, class: "form-control", placeholder: "Nhập họ và tên của bạn" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :email, "Email" %>
+      <%= f.email_field :email, class: "form-control", placeholder: "example@domain.com" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :phone, "Số điện thoại" %>
+      <%= f.text_field :phone, class: "form-control", placeholder: "Nhập số điện thoại của bạn" %>
+    </div>
+    <div class="mb-3">
+      <%= f.label :appointment_date, "Giờ hẹn" %>
+      <%= f.datetime_select :appointment_date, class: "form-control" %>
+    </div>
+    <!-- Ẩn property_id nếu có -->
+    <%= f.hidden_field :property_id, value: params[:property_id] %>
+    <%= f.submit "Gửi thông tin", class: "btn btn-primary" %>
+  <% end %>
+</div>

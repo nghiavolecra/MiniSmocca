@@ -1,0 +1,96 @@
+<!-- app/views/home/index.html.erb -->
+
+<!-- Phần 2: Hàng chia thành 2 cột với bản đồ Việt Nam và form tìm kiếm -->
+<div class="row">
+  <!-- Cột bên trái: Hiển thị bản đồ (hoặc danh sách bất động sản) cho Việt Nam -->
+  <div class="col-12 col-md-8">
+    <div class="map-section shadow-sm mb-3">
+      <h5 class="map-title">Bạn muốn tìm bất động sản tại khu vực nào?</h5>
+        <div class="map-container">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 400" class="img-fluid">
+      <!-- Nhúng ảnh vào SVG -->
+      <image href="<%= asset_path 'vn.svg' %>" width="600" height="400" preserveAspectRatio="xMidYMid slice" />
+
+      <!-- Text overlay: thêm thuộc tính id và style cursor để báo hiệu có thể click -->
+      <text id="hanoi" x="150" y="100" fill="#000000" font-size="20" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" style="cursor: pointer;">
+        Hà Nội
+      </text>
+      <text id="tphcm" x="450" y="300" fill="#000000" font-size="20" font-family="Arial, sans-serif" font-weight="bold" text-anchor="middle" style="cursor: pointer;">
+        TP.HCM
+      </text>
+    </svg>
+  </div>
+
+  <script>
+    // Lắng nghe sự kiện click cho text "Hà Nội"
+    document.getElementById("hanoi").addEventListener("click", function() {
+      // Khi click, thay đổi màu chữ và thêm viền xung quanh text
+      this.style.fill = "red";
+      this.style.stroke = "black";
+      this.style.strokeWidth = "1px";
+    });
+
+    // Lắng nghe sự kiện click cho text "TP.HCM"
+    document.getElementById("tphcm").addEventListener("click", function() {
+      // Khi click, thay đổi màu chữ và thêm viền xung quanh text
+      this.style.fill = "blue";
+      this.style.stroke = "black";
+      this.style.strokeWidth = "1px";
+    });
+  </script>
+
+    
+      <div class="map-list mt-3">
+        <a href="#"><strong>Hà Nội</strong></a>
+        <a href="#"><strong>TP.HCM</strong></a>
+        <a href="#"><strong>Đà Nẵng</strong></a>
+        <a href="#"><strong>Hải Phòng</strong></a>
+        <a href="#"><strong>Cần Thơ</strong></a>
+        <!-- Thêm các link khu vực khác nếu cần -->
+      </div>
+    </div>
+  </div>
+
+  <!-- Cột bên phải: Form tìm kiếm nhanh và banner quảng cáo nhỏ -->
+  <div class="col-12 col-md-4">
+    <div class="card mb-3 shadow-sm">
+      <div class="card-header bg-primary text-white">
+        Tìm kiếm nhanh
+      </div>
+      <div class="card-body">
+        <form action="#" method="GET">
+          <div class="mb-3">
+            <label for="searchLocation" class="form-label">Vị trí</label>
+            <input type="text" class="form-control" id="searchLocation" placeholder="Ví dụ: Quận 1, Hà Nội...">
+          </div>
+          <div class="mb-3">
+            <label for="priceRange" class="form-label">Giá (triệu VNĐ)</label>
+            <select id="priceRange" class="form-select">
+              <option>Chọn khoảng giá</option>
+              <option>Dưới 5 triệu</option>
+              <option>5 - 10 triệu</option>
+              <option>10 - 15 triệu</option>
+              <option>Trên 15 triệu</option>
+            </select>
+          </div>
+          <div class="mb-3">
+            <label for="areaRange" class="form-label">Diện tích (m²)</label>
+            <select id="areaRange" class="form-select">
+              <option>Chọn diện tích</option>
+              <option>Dưới 30 m²</option>
+              <option>30 - 50 m²</option>
+              <option>50 - 100 m²</option>
+              <option>Trên 100 m²</option>
+            </select>
+          </div>
+          <button type="submit" class="btn btn-success w-100">Tìm kiếm</button>
+        </form>
+      </div>
+    </div>
+    
+    <!-- Banner quảng cáo nhỏ bên phải -->
+    <div class="card mb-3 shadow-sm">
+      <img src="https://placehold.co/300x250?text=Banner+Quảng+Cáo" alt="Side banner" class="card-img-top">
+    </div>
+  </div>
+</div>

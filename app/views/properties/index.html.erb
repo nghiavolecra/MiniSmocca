@@ -1,0 +1,50 @@
+<h1>Danh sách bất động sản</h1>
+
+<%= form_with url: properties_path, method: :get, local: true do |form| %>
+  <div>
+    <%= form.label :location, "Tìm theo vị trí:" %>
+    <%= form.text_field :location, value: params[:location] %>
+  </div>
+  <div>
+    <%= form.label :min_price, "Giá tối thiểu:" %>
+    <%= form.number_field :min_price, value: params[:min_price] %>
+  </div>
+  <div>
+    <%= form.label :max_price, "Giá tối đa:" %>
+    <%= form.number_field :max_price, value: params[:max_price] %>
+  </div>
+  <div>
+    <%= form.label :min_area, "Diện tích tối thiểu:" %>
+    <%= form.number_field :min_area, value: params[:min_area] %>
+  </div>
+  <div>
+    <%= form.submit "Tìm kiếm" %>
+  </div>
+<% end %>
+
+<!-- Ví dụ: app/views/properties/index.html.erb -->
+<div class="container my-4">
+  <h2 class="mb-4">Danh sách bất động sản</h2>
+  <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-4">
+    <% @properties.each do |property| %>
+      <div class="col">
+        <%= link_to property_path(property), class: "text-decoration-none text-dark" do %>
+          <div class="card h-100 shadow-sm">
+            <%= image_tag property.image_url || 'https://placehold.co/300x200', class: "card-img-top", alt: property.title %>
+            <div class="card-body">
+              <h5 class="card-title"><%= property.title %></h5>
+              <ul class="list-unstyled mb-2">
+                <li><i class="bi bi-geo-alt-fill"></i> <%= property.location %></li>
+                <li><i class="bi bi-cash-stack"></i> <%= property.price %> (triệu/tháng)</li>
+                <li><i class="bi bi-aspect-ratio"></i> <%= property.area %> m²</li>
+                <% if property.respond_to?(:built_year) && property.built_year.present? %>
+                  <li><i class="bi bi-calendar-check"></i> Xây dựng: <%= property.built_year %></li>
+                <% end %>
+              </ul>
+            </div>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+  </div>
+</div>
