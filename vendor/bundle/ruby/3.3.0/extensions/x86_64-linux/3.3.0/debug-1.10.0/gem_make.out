@@ -1,0 +1,19 @@
+current directory: /home/nghiavolecra/rails/myapp/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+/home/nghiavolecra/.rbenv/versions/3.3.5/bin/ruby extconf.rb
+creating Makefile
+
+current directory: /home/nghiavolecra/rails/myapp/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250415-31634-wayn8n sitelibdir\=./.gem.20250415-31634-wayn8n clean
+
+current directory: /home/nghiavolecra/rails/myapp/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250415-31634-wayn8n sitelibdir\=./.gem.20250415-31634-wayn8n
+compiling debug.c
+compiling iseq_collector.c
+linking shared-object debug/debug.so
+
+current directory: /home/nghiavolecra/rails/myapp/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250415-31634-wayn8n sitelibdir\=./.gem.20250415-31634-wayn8n install
+/usr/bin/install -c -m 0755 debug.so ./.gem.20250415-31634-wayn8n/debug
+
+current directory: /home/nghiavolecra/rails/myapp/vendor/bundle/ruby/3.3.0/gems/debug-1.10.0/ext/debug
+make DESTDIR\= sitearchdir\=./.gem.20250415-31634-wayn8n sitelibdir\=./.gem.20250415-31634-wayn8n clean
