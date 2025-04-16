@@ -83,5 +83,8 @@ test:
 #
 production:
   url: <%= ENV["DATABASE_URL"] %>
+
   cable:
-    url: <%= ENV["DATABASE_URL"] %>
+    <<: *primary_production
+    database: myapp_production_cable
+    migrations_paths: db/cable_migrate
