@@ -82,9 +82,14 @@ test:
 # for a full overview on how database connection configuration can be specified.
 #
 production:
+  primary: &primary_production
+    <<: *default
+    # Nếu bạn không cần cấu hình chi tiết riêng cho production, có thể bỏ dòng dưới đây
+    #database: myapp_production
+    #username: myapp
+    #password: <%= ENV["MYAPP_DATABASE_PASSWORD"] %>
   url: <%= ENV["DATABASE_URL"] %>
-
   cable:
     <<: *primary_production
-    database: myapp_production_cable
-    migrations_paths: db/cable_migrate
+    # Nếu bạn muốn sử dụng cùng một cơ sở dữ liệu cho cable, bạn có thể dùng như sau
+    url: <%= ENV["DATABASE_URL"] %>
